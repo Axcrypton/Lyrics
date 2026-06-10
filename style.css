@@ -1,0 +1,163 @@
+body{
+    background:black;
+    color:white;
+    text-align:center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size:6rem;
+    text-shadow:0 0 20px red;
+}
+
+h4{
+    text-shadow:0 0 10px red;
+}
+
+img{
+    border-radius:20px;
+    border:3px solid white;
+    margin:20px;
+}
+
+img{
+    border-radius: 20px;
+    border: 3px solid white;
+    transition: 0.3s;
+}
+
+img:hover{
+    box-shadow:
+        0 0 15px red,
+        0 0 30px blue,
+        0 0 45px lime;
+    transform: scale(1.03);
+}
+
+audio{
+    margin:20px;
+    width:80%;
+    max-width:600px;
+}
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:20px;
+}
+
+/* RGB Glow Buttons */
+
+.pagination a{
+    position: relative;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    background: #111;
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+/* RGB layer */
+.pagination a::before{
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+
+    background-size: 400%;
+    animation: rgb 8s linear infinite;
+
+    z-index: -1;
+
+    /* Hidden by default */
+    opacity: 0;
+    filter: blur(12px);
+
+    transition: opacity 0.3s ease;
+}
+
+.pagination a:hover::before,
+.pagination a.active-page::before{
+    opacity: 1;
+}
+
+.pagination a:hover,
+.pagination a.active-page{
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.4),
+        0 0 20px rgba(255,255,255,.2);
+}
+
+@keyframes rgb{
+    from{
+        background-position: 0%;
+    }
+    to{
+        background-position: 400%;
+    }
+}
+
+.pagination a:hover{
+    transform:scale(1.05);
+}
+
+audio{
+    transition: 0.3s;
+}
+
+audio:hover{
+    box-shadow:
+        0 0 15px red,
+        0 0 30px blue,
+        0 0 45px lime;
+
+    border-radius: 30px;
+}
+
+#lyrics{
+    width:80%;
+    margin:auto;
+    padding-bottom:200px;
+}
+
+#lyrics p{
+    color:gray;
+    font-size:2rem;
+    transition:.3s;
+    margin:25px 0;
+}
+
+#lyrics p.active{
+    color:white;
+
+    text-shadow:
+        0 0 10px red,
+        0 0 20px blue,
+        0 0 30px lime;
+
+    transform:scale(1.1);
+}
+
+.active-page{
+    box-shadow:
+        0 0 10px red,
+        0 0 20px blue,
+        0 0 30px lime;
+}
